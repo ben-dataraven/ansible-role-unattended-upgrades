@@ -1,0 +1,25 @@
+---
+# tasks file for unattended_upgrades
+
+- name: Install unattended-upgrades package
+  ansible.builtin.package:
+    state: present
+    name:
+      - unattended-upgrades
+
+- name: Override upgrade timer
+  ansible.builtin.template:
+    src: apt-daily-upgrade.timer.j2
+    dest: "{{ unattended_upgrades_upgrade_timer_file }}"
+    owner: root
+    group: root
+    mode: '0755'
+  when: unattended_upgrades_upgrade_timer_oncalendar is defined
+
+- name: Apt Configuration
+  ansible.builtin.template:
+  src: apt-config-template.j2
+  dest: "{{ unattended_upgrades_main_conf_file }}"
+  owner: root
+  group: root
+  mode: '0644'

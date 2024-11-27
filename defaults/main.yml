@@ -1,0 +1,15 @@
+---
+# defaults file for unattended_upgrades
+
+# location of config files
+unattended_upgrades_periodic_conf_file: '/etc/apt/apt.conf.d/10periodic'
+unattended_upgrades_auto_conf_file: '/etc/apt/apt.conf.d/20auto-upgrades'
+unattended_upgrades_main_conf_file: '/etc/apt/apt.conf.d/52unattended-upgrades'
+
+# Main Apt Config
+unattended_upgrades_auto_reboot: false
+unattended_upgrades_auto_reboot_time: 'now'
+
+# Systemd timer config
+unattended_upgrades_upgrade_timer_file: '/etc/systemd/system/apt-daily-upgrade.timer'
+# unattended_upgrades_upgrade_timer_oncalendar: '*-*-* 6:00'
