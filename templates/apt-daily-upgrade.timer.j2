@@ -5,7 +5,7 @@ Description=Daily apt upgrade and clean activities
 After=apt-daily.timer
 
 [Timer]
-OnCalendar={% {{ unattended_upgrades_upgrade_timer_oncalendar }} %}
+OnCalendar={{ unattended_upgrades_upgrade_timer_oncalendar }}
 RandomizedDelaySec=60m
 Persistent=true
 
