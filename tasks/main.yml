@@ -8,12 +8,7 @@
       - unattended-upgrades
 
 - name: Override upgrade timer
-  ansible.builtin.template:
-    src: apt-daily-upgrade.timer.j2
-    dest: "{{ unattended_upgrades_upgrade_timer_file }}"
-    owner: root
-    group: root
-    mode: '0755'
+  ansible.builtin.import_tasks: "upgrade_timer.yml"
   when: unattended_upgrades_upgrade_timer_oncalendar is defined
 
 - name: Apt Configuration

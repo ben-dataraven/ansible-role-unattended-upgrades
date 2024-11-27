@@ -1,0 +1,17 @@
+---
+# tasks file for overriding systemd upgrade timer
+
+- name: Verify calendar variable
+  ansible.builtin.command:
+    cmd: systemd-analyze calendar {{ unattended_upgrades_upgrade_timer_oncalendar }}
+  register: 'systemd_analyze_calendar'
+  failed_when: systemd_analyze_calendar.rc > 0
+  changed_when: false
+
+- name: Override systemd upgrade timer
+  ansible.builtin.template:
+    src: apt-daily-upgrade.timer.j2
+    dest: "{{ unattended_upgrades_upgrade_timer_file }}"
+    owner: root
+    group: root
+    mode: '0755'
