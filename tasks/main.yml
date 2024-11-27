@@ -18,8 +18,8 @@
 
 - name: Apt Configuration
   ansible.builtin.template:
-  src: apt-config-template.j2
-  dest: "{{ unattended_upgrades_main_conf_file }}"
-  owner: root
-  group: root
-  mode: '0644'
+    src: apt-config-template.j2
+    dest: "{{ unattended_upgrades_main_conf_file }}"
+    owner: root
+    group: root
+    mode: '0644'
