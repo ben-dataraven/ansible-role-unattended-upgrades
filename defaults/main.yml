@@ -9,6 +9,7 @@ unattended_upgrades_main_conf_file: '/etc/apt/apt.conf.d/52unattended-upgrades'
 # Main Apt Config
 unattended_upgrades_auto_reboot: false
 unattended_upgrades_auto_reboot_time: 'now'
+unattended_upgrades_handle_conffile_prompt: false
 
 # Main Apt Config: Origins
 unattended_upgrades_origins_distro_updates: false

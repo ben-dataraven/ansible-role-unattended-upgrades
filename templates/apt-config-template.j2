@@ -20,3 +20,11 @@ Unattended-Upgrade::Automatic-Reboot "true";
 //Unattended-Upgrade::Automatic-Reboot-WithUsers "true";
 Unattended-Upgrade::Automatic-Reboot-Time "{{ unattended_upgrades_auto_reboot_time }}";
 {% endif %}
+
+{% if unattended_upgrades_handle_conffile_prompt %}
+// be aware that these conf file options will affect all of apt (not just unattended upgrades)
+Dpkg::Options {
+  "--force-confdef"; // apply new changes if conf file is unmodified
+  "--force-confold"; // preserve old file if conf has been changed
+};
+{% endif %}

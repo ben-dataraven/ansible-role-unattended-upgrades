@@ -26,14 +26,16 @@ none
 Example Playbook
 ----------------
 
-configure servers to automatically upgrade packages on the first Sunday of the month, and to reboot as necessary
+configure servers to automatically upgrade packages on the first Sunday of the month, including the distro-updates origin, to automatically handle any package conf file changes, and to reboot the server as necessary
 
 ```
   - hosts: servers
       
     vars:
-      unattended_upgrades_auto_reboot: true
       unattended_upgrades_upgrade_timer_oncalendar: 'Sun *-*-01..07 06:00'
+      unattended_upgrades_origins_distro_updates: true
+      unattended_upgrades_handle_conffile_prompt: true
+      unattended_upgrades_auto_reboot: true
   
     roles:
       - dataraven.unattended_upgrades
