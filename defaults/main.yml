@@ -12,7 +12,7 @@ unattended_upgrades_auto_reboot_time: 'now'
 unattended_upgrades_handle_conffile_prompt: false
 
 # Main Apt Config: Origins
-unattended_upgrades_origins_distro_updates: false
+unattended_upgrades_origins_distro_recommended: false
 unattended_upgrades_origins_distro_proposed: false
 unattended_upgrades_origins_distro_backports: false
 unattended_upgrades_origins_additional: []

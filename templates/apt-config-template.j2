@@ -1,7 +1,7 @@
 // {{ ansible_managed }}
 
 Unattended-Upgrade::Allowed-Origins {
-{% if unattended_upgrades_origins_distro_updates %}
+{% if unattended_upgrades_origins_distro_recommended %}
   "${distro_id}:${distro_codename}-updates";
 {% endif %}
 {% if unattended_upgrades_origins_distro_proposed %}
