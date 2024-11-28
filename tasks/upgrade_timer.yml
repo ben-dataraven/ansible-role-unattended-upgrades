@@ -14,4 +14,4 @@
     dest: "{{ unattended_upgrades_upgrade_timer_file }}"
     owner: root
     group: root
-    mode: '0755'
+    mode: '0644'
