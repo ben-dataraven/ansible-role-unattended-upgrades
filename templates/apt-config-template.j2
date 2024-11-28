@@ -1,5 +1,20 @@
 // {{ ansible_managed }}
 
+Unattended-Upgrade::Allowed-Origins {
+{% if unattended_upgrades_origins_distro_updates %}
+  "${distro_id}:${distro_codename}-updates";
+{% endif %}
+{% if unattended_upgrades_origins_distro_proposed %}
+  "${distro_id}:${distro_codename}-proposed";
+{% endif %}
+{% if unattended_upgrades_origins_distro_backports %}
+  "${distro_id}:${distro_codename}-backports";
+{% endif %}
+{% for origin in unattended_upgrades_origins_additional %}
+  "{{ origin }}"
+{% endfor %}
+};
+
 {% if unattended_upgrades_auto_reboot %}
 Unattended-Upgrade::Automatic-Reboot "true";
 //Unattended-Upgrade::Automatic-Reboot-WithUsers "true";

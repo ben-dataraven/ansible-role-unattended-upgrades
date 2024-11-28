@@ -10,6 +10,12 @@ unattended_upgrades_main_conf_file: '/etc/apt/apt.conf.d/52unattended-upgrades'
 unattended_upgrades_auto_reboot: false
 unattended_upgrades_auto_reboot_time: 'now'
 
+# Main Apt Config: Origins
+unattended_upgrades_origins_distro_updates: false
+unattended_upgrades_origins_distro_proposed: false
+unattended_upgrades_origins_distro_backports: false
+unattended_upgrades_origins_additional: []
+
 # Systemd timer config
 unattended_upgrades_upgrade_timer_file: '/etc/systemd/system/apt-daily-upgrade.timer'
 # unattended_upgrades_upgrade_timer_oncalendar: '*-*-* 6:00'
