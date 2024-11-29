@@ -18,5 +18,4 @@ unattended_upgrades_origins_distro_backports: false
 unattended_upgrades_origins_additional: []
 
 # Systemd timer config
-unattended_upgrades_upgrade_timer_file: '/etc/systemd/system/apt-daily-upgrade.timer'
 # unattended_upgrades_upgrade_timer_oncalendar: '*-*-* 6:00'
